@@ -1,0 +1,10 @@
+{% if paginator.has_previous or  paginator.has_next %}
+<section id="page_nav">
+  {% if paginator.has_previous %}
+    <a href='{{ paginator.previous_page_url }}'>← Previous</a>
+  {% endif %}
+  {% if paginator.has_next %}
+    <a href='{{ paginator.next_page_url }}'>Next →</a>
+  {% endif %}
+</section>
+{% endif %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ site.title }}{% endblock %}
+
+
+{% block content %}
+
+<article>
+  <section class="title">
+    <h2>archive</h2>
+  </section>
+  <section class="post">
+    <ul class="listing">
+    {% for month, posts in archive %}
+        <li class="listing-seperator">{{ month }}</li>
+        <ul class='listing'>
+        {% for post in posts %}
+            <li class="listing-item">
+                <time datetime="{{ post.date | date("%Y-%m-%d") }}">{{ post.date | date("%Y-%m-%d") }}</time>
+                <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    </ul>
+  </section>
+</article>
+{% endblock %}
+
+
+

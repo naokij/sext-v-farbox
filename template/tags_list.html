@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}tags{% endblock %}
+
+{% block content %}
+
+<article>
+  <section class="title">
+    <h2>{{ title }} </h2>
+  </section>
+  <section class="post">
+    <div id='tag_cloud'>
+    {% for tag_name, tag_count in site.tags %}
+    <a href="/tags/{{ tag_name }}" title="{{ tag_name }}" rel="{{ tag_count }}">{{ tag_name }}</a>
+    {% endfor %}
+    </div>
+  </section>
+</article>
+
+<script src="/t/js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script> 
+<script src="/t/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script> 
+<script language="javascript">
+$.fn.tagcloud.defaults = {
+    size: {start: 1, end: 1, unit: 'em'},
+      color: {start: '#f8e0e6', end: '#ff3333'}
+};
+
+$(function () {
+    $('#tag_cloud a').tagcloud();
+});
+</script>
+
+{% endblock %}

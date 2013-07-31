@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if request.path == '/pages/links' %}
+        links
+    {% elif request.path == '/pages/about' %}
+    about
+    {% else %}
+        {{ post.title }}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+<article>
+  <section class="title">
+    <h2>{{ title }}</h2>
+  </section>
+  <section class="post">
+  {{ post.content }}
+  </section>
+</article>  
+{% endblock %}

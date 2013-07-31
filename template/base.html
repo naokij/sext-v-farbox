@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel='alternate' type='application/rss+xml' title='atom 1.0' href='/feed' />
+    <title>{% block title %} {% endblock %}</title>
+    <link href="http://resource.farbox.com/css/basic.css?version={{resource_version}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/t/css/style.css" />
+    <link rel="stylesheet" href="/t/css/github.css" />
+    <link rel="stylesheet" href="/t/css/fontawesome.css" />
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/t/css/fontawesome-ie7.css">
+    <![endif]-->
+</head>
+
+  <body>
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="{{ site.title or 'THIS IS MY SITE'}}" class="" href="/">{{ site.title or 'THIS IS MY SITE'}}</a></h1>
+          </div>
+          <nav>
+            <span><a title="Archive" class="icon-list-ul" href="/archive"></a></span>
+            <span><a title="Tags" class="icon-tags" href="/tags_list"></a></span>
+            <span><a title="About" class="icon-user" href="/pages/about"></a></span>
+            {%  if has('images') %}
+            <span><a title="Gallery" class="icon-film" href="/folder/"></a></span>
+            {% endif %}
+            <span><a title="Blogroll" class="icon-link" href="/pages/links"></a></span>
+            <span><a title="Subscribe" class="icon-rss" href="/feed"></a></span>
+          </nav>
+        </header>
+        <div id="content">
+        {% block content %}
+        {% endblock %}
+        
+        </div>
+        <footer>
+          <div>
+            <a target='_blank' href="http://www.farbox.com">Proudly Powered By FarBox.com</a> | themed by <a href="http://lhzhang.com" title="sext v">sext v</a> | clone <a href="http://jiangle.farbox.com/template" title="fork me">template</a>
+          </div>
+        </footer>
+      </div> <!-- main -->
+  </body>
+</html>

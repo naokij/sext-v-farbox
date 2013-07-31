@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
+<article>
+  <section class="title">
+    <h2>{{ post.title }} </h2>
+  </section>
+  <section class="meta">
+  <span class="time">
+    <time datetime="{{ post.date | date("%Y-%m-%d") }}">{{ post.date | date("%Y-%m-%d") }}</time>
+  </span>
+  {% if post.tags %}
+  <span class="tags">
+    {% for tag in post.tags %}
+    <a href="/tags/{{ tag }}" title="{{ tag }}">#{{ tag }}</a>
+    {% endfor %}
+  </span>
+  {% endif %}
+  </section>
+  <section class="post">
+  {{ post.content }}
+  </section>
+  {% include 'include/comments.html'%}
+</article>
+
+<script src="/t/js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script> 
+<script language="javascript">
+$(function () {
+  images = $(".post img");
+  images.each(function(){
+    box = $('<span class="image-700"></span>');
+    box.append($(this).clone());
+    $(this).replaceWith(box);
+  });
+});
+</script>
+{% endblock %}
